@@ -1,0 +1,6 @@
+{% extends 'crm/base.html' %}
+{% block title %}Delete record · Fieldnote{% endblock %}
+{% block content %}
+<div class="breadcrumb"><a href="{% url 'customer_list' %}">Workspace</a><span>/</span><span>Delete</span></div>
+<section class="confirm-panel"><div class="eyebrow">PERMANENT ACTION</div><h1>Delete this record?</h1><p><strong>{{ object }}</strong> will be removed. Related records may also be deleted.</p><form method="post">{% csrf_token %}<button class="button button-danger" type="submit">Delete permanently</button>{% if cancel_pk %}<a class="button button-light" href="{% url cancel_url cancel_pk %}">Keep record</a>{% else %}<a class="button button-light" href="{% url cancel_url %}">Keep record</a>{% endif %}</form></section>
+{% endblock %}

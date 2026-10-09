@@ -1,0 +1,5 @@
+{% extends 'crm/base.html' %}
+{% block title %}Sign in · Fieldnote{% endblock %}
+{% block public_content %}
+<main class="login-page"><a class="brand login-brand" href="{% url 'login' %}"><span class="brand-mark">F</span><span>fieldnote<span class="brand-period">.</span></span></a><section class="login-card"><div class="eyebrow">YOUR SALES DESK</div><h1>Welcome back.</h1><p>Sign in to pick up where the conversation left off.</p>{% if form.errors %}<div class="flash error">Your username and password didn't match. Try again.</div>{% endif %}<form method="post" class="record-form">{% csrf_token %}{{ form.as_p }}<input type="hidden" name="next" value="{{ next }}"><button class="button button-primary button-block" type="submit">Sign in</button></form></section><div class="login-foot">FIELDNOTE CRM <span>KEEP GOOD COMPANY.</span></div></main>
+{% endblock %}

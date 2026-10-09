@@ -1,0 +1,7 @@
+{% extends 'crm/base.html' %}
+{% block title %}Import customers · Fieldnote{% endblock %}
+{% block content %}
+<div class="breadcrumb"><a href="{% url 'customer_list' %}">Customers</a><span>/</span><span>Import</span></div>
+<header class="page-heading page-heading-compact"><div><div class="eyebrow">BRING YOUR BOOK OF BUSINESS</div><h1>Import customers</h1><p class="heading-note">Add or update up to 10,000 customer records in one pass.</p></div></header>
+<section class="form-panel import-panel"><form method="post" enctype="multipart/form-data" class="record-form">{% csrf_token %}<label class="upload-label" for="csv-file"><span class="upload-symbol">+</span><strong>Choose a CSV file</strong><span>UTF-8 encoded · maximum 5 MB</span></label><input id="csv-file" class="file-input" type="file" name="file" accept=".csv,text/csv" required><div class="import-columns"><span>REQUIRED COLUMNS</span><code>name, company, email, phone</code></div><div class="form-actions"><button class="button button-primary" type="submit">Import customers</button><a class="button button-light" href="{% url 'customer_list' %}">Cancel</a></div></form></section>
+{% endblock %}

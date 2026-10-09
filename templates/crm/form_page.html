@@ -1,0 +1,7 @@
+{% extends 'crm/base.html' %}
+{% block title %}{{ title }} · Fieldnote{% endblock %}
+{% block content %}
+<div class="breadcrumb"><a href="{% url 'customer_list' %}">Workspace</a><span>/</span><span>{{ title }}</span></div>
+<header class="page-heading page-heading-compact"><div><div class="eyebrow">RECORD DETAILS</div><h1>{{ title }}</h1></div></header>
+<section class="form-panel"><form method="post" class="record-form">{% csrf_token %}{{ form.as_p }}<div class="form-actions"><button class="button button-primary" type="submit">Save changes</button>{% if back_url and back_pk %}<a class="button button-light" href="{% url back_url back_pk %}">Cancel</a>{% else %}<a class="button button-light" href="{% url 'customer_list' %}">Cancel</a>{% endif %}</div></form></section>
+{% endblock %}
